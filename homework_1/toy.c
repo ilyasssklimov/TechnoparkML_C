@@ -129,6 +129,6 @@ void free_toy(toy *free_toy)
             free_toy->country = NULL;
         }
         free(free_toy);
-        free_toy = NULL;
+        *free_toy = NULL;
     }
 }
