@@ -1,6 +1,7 @@
+// Copyright 2021 Klimov Ilya
+#include "toys.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "toys.h"
 #define N 2
 
 int main()

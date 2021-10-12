@@ -1,6 +1,7 @@
-#include "toy.h"
-#include "my_string.h"
+// Copyright 2021 Klimov Ilya
+#include "./toy.h"
 #include <stdlib.h>
+#include "./my_string.h"
 
 toy *add_toy(FILE *flow)
 {

@@ -1,3 +1,4 @@
+// Copyright 2021 Klimov Ilya
 #include "toys.h"
 #include "my_string.h"
 #include <string.h>
