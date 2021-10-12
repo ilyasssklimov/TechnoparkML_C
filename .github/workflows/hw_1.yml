@@ -16,7 +16,15 @@ jobs:
       - name: Check-out repository
         uses: actions/checkout@v2
 
-      - name: Run a multi-line script
+      - name: Testing by cppcheck
         run: |
           sudo apt-get install cppcheck
           cppcheck -q --enable=all --inconclusive homework_1/
+      
+      - name: Testing by cpplint
+        run: |
+          sudo apt install python3-pip
+          sudo pip install cpplint
+          find homework/ -name *.c | xargs cpplint --linelength=80
+          find homework/ -name *.h | xargs cpplint --linelength=80
+ 
