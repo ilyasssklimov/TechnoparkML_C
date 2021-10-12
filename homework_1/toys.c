@@ -4,13 +4,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-toy** add_toys(FILE *flow, int n)
+toy **add_toys(FILE *flow, int n)
 {
     if (n <= 0 || !flow)
         return NULL;
 
-    toy **toys = (toy**) malloc(n * sizeof(toy*));
+    toy **toys = (toy **)malloc(n * sizeof(toy *));
     if (!toys)
     {
         printf("Allocate error! Try again.\n");
@@ -22,7 +21,7 @@ toy** add_toys(FILE *flow, int n)
 
     for (int i = 0; i < n; i++)
     {
-        toys[i] = (toy*) malloc(sizeof(toy));
+        toys[i] = (toy *)malloc(sizeof(toy));
         if (toys[i])
         {
             toys[i]->name = NULL;
@@ -57,7 +56,6 @@ toy** add_toys(FILE *flow, int n)
     return toys;
 }
 
-
 void print_toys(FILE *flow, toy *toys[], int n)
 {
     if (!toys || n <= 0 || !flow)
@@ -81,12 +79,11 @@ void print_toys(FILE *flow, toy *toys[], int n)
     }
 }
 
-
 void free_toys(toy *toys[], int n)
 {
     if (!toys || n < 0)
         return;
-    
+
     for (int i = 0; i < n; i++)
     {
         if (toys[i])
@@ -98,15 +95,14 @@ void free_toys(toy *toys[], int n)
     toys = NULL;
 }
 
-
 int *get_toys_from_country(toy **toys, int n, const char *search_country, int *amount)
 {
     if (strlen(search_country) == 0 || !toys || n <= 0)
         return NULL;
 
-    int *indeces = (int*) malloc(n * sizeof(int));
+    int *indeces = (int *)malloc(n * sizeof(int));
     int j = 0;
-    
+
     for (int i = 0; i < n; i++)
     {
         if (strcmp(toys[i]->country, search_country) == 0)
@@ -119,7 +115,6 @@ int *get_toys_from_country(toy **toys, int n, const char *search_country, int *a
     *amount = j;
     return indeces;
 }
-
 
 void print_toys_by_indeces(FILE *flow, toy **toys, int *indeces, int m)
 {

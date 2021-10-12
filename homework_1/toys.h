@@ -3,7 +3,7 @@
 
 #include "toy.h"
 
-toy** add_toys(FILE *flow, int n);
+toy **add_toys(FILE *flow, int n);
 void print_toys(FILE *flow, toy *toys[], int n);
 void free_toys(toy *toys[], int n);
 int *get_toys_from_country(toy **toys, int n, const char *search_country, int *amount);

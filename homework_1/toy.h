@@ -7,7 +7,6 @@
 #define MAX_COUNTRY_LENGTH 64
 #define EPS 1e-5
 
-
 typedef struct toy
 {
     char *name;
@@ -16,8 +15,7 @@ typedef struct toy
     char *country;
 } toy;
 
-
-toy* add_toy(FILE *flow);
+toy *add_toy(FILE *flow);
 void print_toy(FILE *flow, toy *output_toy);
 void free_toy(toy *free_toy);
 
