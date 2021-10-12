@@ -1,11 +1,10 @@
 // Copyright 2021 Klimov Ilya
-#include "toys.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "homework_1/toys.h"
 #define N 2
 
-int main()
-{
+int main() {
     toy **toys = NULL;
     toys = add_toys(stdin, N);
     print_toys(stdout, toys, N);
@@ -17,12 +16,10 @@ int main()
     indeces = get_toys_from_country(toys, N, country, &amount_countries);
     print_toys_by_indeces(stdout, toys, indeces, amount_countries);
 
-    if (amount_countries == 0)
-    {
+    if (amount_countries == 0) {
         printf("There are no toys from %s :(\n", country);
     }
-    if (indeces)
-    {
+    if (indeces) {
         free(indeces);
     }
 
