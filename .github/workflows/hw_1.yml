@@ -25,6 +25,6 @@ jobs:
         run: |
           sudo apt install python3-pip
           sudo pip install cpplint
-          find homework/ -name *.c | xargs cpplint --linelength=80
-          find homework/ -name *.h | xargs cpplint --linelength=80
+          find homework_1/ -name '*.c' | xargs cpplint --linelength=80
+          find homework_1/ -name '*.h' | xargs cpplint --linelength=80
  
