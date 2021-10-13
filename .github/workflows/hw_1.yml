@@ -37,4 +37,6 @@ jobs:
           make
       
       - name: Unit testing
-        run: ./test_toys
+        run: |
+        cd homework_1/build
+        ./test_toys
