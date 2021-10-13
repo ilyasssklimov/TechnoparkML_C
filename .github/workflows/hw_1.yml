@@ -29,6 +29,7 @@ jobs:
       
       - name: Build
         run: |
+          sudo apt install libgtest-dev
           cd homework_1
           mkdir build
           cd build
