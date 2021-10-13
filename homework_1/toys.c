@@ -1,9 +1,9 @@
 // Copyright 2021 Klimov Ilya
-#include "toys.h"
-#include "homework_1/my_string.h"
+#include "homewwork_1/toys.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "homework_1/my_string.h"
 
 toy **add_toys(FILE *flow, int n) {
     if (n <= 0 || !flow)
@@ -47,8 +47,7 @@ toy **add_toys(FILE *flow, int n) {
     return toys;
 }
 
-void print_toys(FILE *flow, toy *toys[], int n)
-{
+void print_toys(FILE *flow, toy *toys[], int n) {
     if (!toys || n <= 0 || !flow)
         return;
 
@@ -66,8 +65,7 @@ void print_toys(FILE *flow, toy *toys[], int n)
     }
 }
 
-void free_toys(toy *toys[], int n)
-{
+void free_toys(toy *toys[], int n) {
     if (!toys || n < 0)
         return;
 
@@ -84,7 +82,7 @@ int *get_toys_from_country(toy **toys, int n, const char *search_country, int *a
     if (strlen(search_country) == 0 || !toys || n <= 0)
         return NULL;
 
-    int *indeces = (int *)malloc(n * sizeof(int));
+    int *indeces = malloc(n * sizeof(int));
     int j = 0;
 
     for (int i = 0; i < n; i++) {
@@ -98,8 +96,7 @@ int *get_toys_from_country(toy **toys, int n, const char *search_country, int *a
     return indeces;
 }
 
-void print_toys_by_indeces(FILE *flow, toy **toys, int *indeces, int m)
-{
+void print_toys_by_indeces(FILE *flow, toy **toys, int *indeces, int m) {
     if (!toys || !indeces || m <= 0 || !flow)
         return;
 

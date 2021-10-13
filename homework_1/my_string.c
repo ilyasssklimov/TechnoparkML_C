@@ -9,8 +9,8 @@ int get_string(FILE *flow, char *in_string, int max_len) {
     char c = '\0';
     int length = -1;
 
-    while ((c = fgetc(flow)) == '\n') {};
-    
+    while ((c = fgetc(flow)) == '\n') {}
+
     while (c != '\n' && c != EOF && length < last_sym) {
         length++;
         in_string[length] = c;

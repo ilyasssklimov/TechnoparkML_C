@@ -1,7 +1,7 @@
 // Copyright 2021 Klimov Ilya
-#include "./toy.h"
+#include "homework_1/toy.h"
 #include <stdlib.h>
-#include "./my_string.h"
+#include "homework_1/my_string.h"
 
 toy *add_toy(FILE *flow) {
     if (!flow)
@@ -54,7 +54,7 @@ toy *add_toy(FILE *flow) {
         return NULL;
     }
 
-    char *country = (char *)malloc(MAX_COUNTRY_LENGTH * sizeof(char));
+    char *country = malloc(MAX_COUNTRY_LENGTH * sizeof(char));
     if (!country) {
         printf("Allocate error!. Try again.\n");
         free(name);
@@ -84,8 +84,7 @@ toy *add_toy(FILE *flow) {
     return new_toy;
 }
 
-void print_toy(FILE *flow, toy *output_toy)
-{
+void print_toy(FILE *flow, toy *output_toy) {
     if (!flow)
         return;
 
