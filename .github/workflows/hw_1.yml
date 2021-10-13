@@ -19,7 +19,7 @@ jobs:
       - name: Testing by cppcheck
         run: |
           sudo apt-get install cppcheck
-          cppcheck -q --enable=all --inconclusive homework_1/
+          cppcheck -q --enable=all --inconclusive --filter=-build/include_subdir homework_1/
       
       - name: Testing by cpplint
         run: |
