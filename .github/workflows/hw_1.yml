@@ -27,7 +27,7 @@ jobs:
           sudo pip install cpplint
           find homework_1/ -name '*.c' | xargs cpplint --filter=-build/include_subdir --linelength=120
       
-      - name: Build
+      - name: Unit testing
         run: |
           sudo apt install libgtest-dev
           cd homework_1
@@ -36,3 +36,9 @@ jobs:
           cmake ..
           make
           ./test_toys
+      
+      - name: Testing by valgrind
+        run: |
+          sudo apt install valgrind
+          cd build
+          valgrind --leak-check=full --error-exitcode=1 ./test_toys
