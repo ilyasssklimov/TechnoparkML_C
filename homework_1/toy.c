@@ -22,6 +22,7 @@ toy *add_toy(FILE *flow) {
     if (get_string(flow, name, MAX_NAME_LENGTH) <= 0) {
         printf("Incorrect name! The length should be less then %d and more then 0.\n", MAX_NAME_LENGTH);
         free(name);
+        name = NULL;
         fflush(stdout);
         return NULL;
     }
@@ -36,6 +37,7 @@ toy *add_toy(FILE *flow) {
     if (fscanf(flow, "%lf", &price) != 1 || price <= EPS) {
         printf("Incorrect price! The price should be positive number.\n");
         free(name);
+        name = NULL;
         fflush(stdout);
         return NULL;
     }
@@ -50,6 +52,7 @@ toy *add_toy(FILE *flow) {
     if (fscanf(flow, "%d", &volume) != 1 || volume < 0) {
         printf("Incorrect volume! The volume should be not negative number.\n");
         free(name);
+        name = NULL;
         fflush(stdout);
         return NULL;
     }
@@ -71,6 +74,8 @@ toy *add_toy(FILE *flow) {
         printf("Incorrect name of country! The length should be less then %d and more then 0.\n", MAX_COUNTRY_LENGTH);
         free(name);
         free(country);
+        name = NULL;
+        country = NULL;
         fflush(stdout);
         return NULL;
     }

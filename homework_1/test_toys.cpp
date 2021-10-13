@@ -250,14 +250,13 @@ TEST(NEGATIVE_TOYS_TEST, OVER_SIZE_NAME)
     FILE *file = NULL;
 
     file = fopen(filename, "w");
-    char *name = (char *)malloc(sizeof(char) * MAX_NAME_LENGTH);
+    char name[MAX_NAME_LENGTH + 1];
     for (int i = 0; i < MAX_NAME_LENGTH; i++)
     {
         name[i] = 'a';
     }
+    name[MAX_NAME_LENGTH] = '\0';
     fprintf(file, "%s\n200\n100\nRussia\n", name);
-    fclose(file);
-    free(name);
 
     file = fopen(filename, "r");
     toys = add_toys(file, N1);
@@ -274,14 +273,14 @@ TEST(NEGATIVE_TOYS_TEST, OVER_SIZE_COUNTRY)
     FILE *file = NULL;
 
     file = fopen(filename, "w");
-    char *country = (char *)malloc(sizeof(char) * MAX_COUNTRY_LENGTH);
+    char country[MAX_COUNTRY_LENGTH + 1];
     for (int i = 0; i < MAX_COUNTRY_LENGTH; i++)
     {
         country[i] = 'a';
     }
+    country[MAX_COUNTRY_LENGTH] = '\0';
     fprintf(file, "Toy1\n200\n100\n%s\n", country);
     fclose(file);
-    free(country);
 
     file = fopen(filename, "r");
     toys = add_toys(file, N1);
