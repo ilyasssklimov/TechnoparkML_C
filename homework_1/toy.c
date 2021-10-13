@@ -96,8 +96,7 @@ void print_toy(FILE *flow, toy *output_toy) {
     }
 }
 
-void free_toy(toy *free_toy)
-{
+void free_toy(toy *free_toy) {
     if (free_toy) {
         if (free_toy->name) {
             free(free_toy->name);

@@ -1,5 +1,5 @@
 // Copyright 2021 Klimov Ilya
-#include "homewwork_1/toys.h"
+#include "homework_1/toys.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
