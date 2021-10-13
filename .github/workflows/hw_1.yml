@@ -30,4 +30,4 @@ jobs:
       - name: Testing by clang-tidy
         run: |
           sudo apt-get install clang-tidy
-          clang-tidy homework_1/ --checks=clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
+          clang-tidy homework_1/ -checks=-*,clang-analyzer-*,-clang-analyzer-cplusplus*
