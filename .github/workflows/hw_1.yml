@@ -26,5 +26,8 @@ jobs:
           sudo apt install python3-pip
           sudo pip install cpplint
           find homework_1/ -name '*.c' | xargs cpplint --linelength=120
-          find homework_1/ -name '*.h' | xargs cpplint --linelength=120
- 
+      
+      - name: Testing by clang-tidy
+        run: |
+          sudo apt-get install clang-tidy
+          clang-tidy homework_1/ --checks=clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
