@@ -27,7 +27,9 @@ jobs:
           sudo pip install cpplint
           find homework_1/ -name '*.c' | xargs cpplint --linelength=120
       
-      - name: Testing by clang-tidy
+      - name: Build
         run: |
-          sudo apt-get install clang-tidy
-          clang-tidy homework_1/ -checks=-*,clang-analyzer-*,-clang-analyzer-cplusplus*
+          cd homework_1
+          mkdir build
+          cmake ..
+          make
