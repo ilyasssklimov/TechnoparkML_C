@@ -31,5 +31,6 @@ jobs:
         run: |
           cd homework_1
           mkdir build
+          cd build
           cmake ..
           make
