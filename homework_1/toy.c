@@ -1,7 +1,7 @@
 // Copyright 2021 Klimov Ilya
-#include "homework_1/toy.h"
+#include "toy.h"
 #include <stdlib.h>
-#include "homework_1/my_string.h"
+#include "my_string.h"
 
 toy *add_toy(FILE *flow) {
     if (!flow)

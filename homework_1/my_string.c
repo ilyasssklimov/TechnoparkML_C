@@ -1,5 +1,5 @@
 // Copyright 2021 Klimov Ilya
-#include "homework_1/my_string.h"
+#include "my_string.h"
 
 int get_string(FILE *flow, char *in_string, int max_len) {
     if (!flow || !in_string || max_len <= 0)

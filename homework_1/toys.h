@@ -2,7 +2,7 @@
 #ifndef HOMEWORK_1_TOYS_H_
 #define HOMEWORK_1_TOYS_H_
 
-#include "homework_1/toy.h"
+#include "toy.h"
 
 toy **add_toys(FILE *flow, int n);
 void print_toys(FILE *flow, toy *toys[], int n);

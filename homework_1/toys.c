@@ -1,9 +1,9 @@
 // Copyright 2021 Klimov Ilya
-#include "homework_1/toys.h"
+#include "toys.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "homework_1/my_string.h"
+#include "my_string.h"
 
 toy **add_toys(FILE *flow, int n) {
     if (n <= 0 || !flow)
