@@ -35,3 +35,6 @@ jobs:
           cd build
           cmake ..
           make
+      
+      - name: Unit testing
+        run: ./test_toys
