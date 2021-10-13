@@ -40,5 +40,6 @@ jobs:
       - name: Testing by valgrind
         run: |
           sudo apt install valgrind
+          cd homework_1
           ls
           valgrind --leak-check=full --error-exitcode=1 ./test_toys
