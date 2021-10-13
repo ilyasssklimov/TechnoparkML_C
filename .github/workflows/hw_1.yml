@@ -35,8 +35,4 @@ jobs:
           cd build
           cmake ..
           make
-      
-      - name: Unit testing
-        run: |
-        cd homework_1/build
-        ./test_toys
+          ./test_toys
