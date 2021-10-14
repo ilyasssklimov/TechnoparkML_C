@@ -75,7 +75,6 @@ void free_toys(toy *toys[], int n) {
         }
     }
     free(toys);
-    // toys = NULL;
 }
 
 int *get_toys_from_country(toy **toys, int n, const char *search_country, int *amount) {
