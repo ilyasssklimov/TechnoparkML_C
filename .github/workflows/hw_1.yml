@@ -54,7 +54,7 @@ jobs:
           gcov toy.c.gcno
           lcov --capture --directory ./ --output-file toy.info
           cp toy.info ../../toy.info
-          cd ../my_string.c.gcno
+          cd ../my_string.c.dir
           gcov my_string.c.gcno
           lcov --capture --directory ./ --output-file my_string.info
           cp my_string.info ../../my_string.info
