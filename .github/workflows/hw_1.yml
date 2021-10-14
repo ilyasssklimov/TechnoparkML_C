@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check-out repository
+      - name: Checking-out repository
         uses: actions/checkout@v2
 
       - name: Testing by cppcheck
         run: |
-          sudo apt-get install cppcheck
+          sudo apt install cppcheck
           cppcheck -q --enable=all --inconclusive homework_1/
       
       - name: Testing by cpplint
@@ -41,4 +41,28 @@ jobs:
         run: |
           sudo apt install valgrind
           cd homework_1/build
-          valgrind --leak-check=full --error-exitcode=1 -s ./test_toys
+          valgrind --leak-check=full ./test_toys
+      
+      - name: Checking-out coverage
+        run: |
+          sudo apt install lcov
+          cd homework_1/build/CMakeFiles/toys.dir
+          gcov toys.c.gcno
+          lcov --capture --directory ./ --output-file toys.info
+          cp toys.info ../../toys.info
+          cd ../toy.dir
+          gcov toy.c.gcno
+          lcov --capture --directory ./ --output-file toy.info
+          cp toy.info ../../toy.info
+          cd ../my_string.c.gcno
+          gcov my_string.c.gcno
+          lcov --capture --directory ./ --output-file my_string.info
+          cp my_string.info ../../my_string.info
+          cd ../..
+          genhtml toys.info toy.info my_string.info --output-directory cov/
+      
+      - name: Saving covarage file
+        uses: actions/upload-artifact@v2
+        with:
+          name: Coverage
+          path: homework_1/build/cov/
