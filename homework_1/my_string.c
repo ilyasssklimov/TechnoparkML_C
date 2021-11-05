@@ -6,12 +6,12 @@ int get_string(FILE *flow, char *in_string, int max_len) {
         return -1;
 
     int last_sym = max_len - 1;
-    char c = '\0';
+    char c;
     int length = -1;
 
     while ((c = fgetc(flow)) == '\n') {}
 
-    while (c != '\n' && c != EOF && length < last_sym) {
+    while (!feof(flow) && c != '\n' && length < last_sym) {
         length++;
         in_string[length] = c;
         c = fgetc(flow);

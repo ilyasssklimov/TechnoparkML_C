@@ -19,28 +19,25 @@ toy **add_toys(FILE *flow, int n) {
     toy *tmp_toy = NULL;
 
     for (int i = 0; i < n; i++) {
-        toys[i] = malloc(sizeof(toy));
-        if (toys[i]) {
-            toys[i]->name = NULL;
-            toys[i]->country = NULL;
-            if (flow == stdin) {
-                printf("Adding toy №%d...\n", i + 1);
-                fflush(stdout);
-            }
-            tmp_toy = add_toy(flow);
+        // toys[i] = malloc(sizeof(toy));
+        toys[i] = NULL;
+        // if (toys[i]) {
+		// toys[i]->name = NULL;
+		// toys[i]->country = NULL;
+		if (flow == stdin) {
+			printf("Adding toy №%d...\n", i + 1);
+			fflush(stdout);
+		}
+		tmp_toy = add_toy(flow);
 
-            if (tmp_toy) {
-                toys[i] = tmp_toy;
-                printf("\n");
-            } else {
-                free_toys(toys, i + 1);
-                return NULL;
-            }
-        } else {
+		if (tmp_toy) {
+			toys[i] = tmp_toy;
+			printf("\n");
+		} else {
             printf("Allocate error! Try again.\n");
-            free_toys(toys, i);
-            return NULL;
-        }
+			free_toys(toys, i);
+			return NULL;
+		}
     }
     fflush(stdout);
 
