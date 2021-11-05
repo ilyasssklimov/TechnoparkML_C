@@ -92,12 +92,11 @@ void print_toys_by_indeces(FILE *flow, toy **toys, int *indeces, int m) {
     if (!toys || !indeces || m <= 0 || !flow)
         return;
 
-    int index;
     fprintf(flow, "-----------------------------\n");
     fprintf(flow, "Found toys\n");
     fprintf(flow, "-----------------------------\n");
     for (int i = 0; i < m; i++) {
-        index = indeces[i];
+        int index = indeces[i];
         fprintf(flow, "Toy №%d\n", index + 1);
         if (toys[index]) {
             print_toy(flow, toys[index]);
