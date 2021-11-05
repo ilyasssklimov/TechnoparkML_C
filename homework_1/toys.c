@@ -23,21 +23,21 @@ toy **add_toys(FILE *flow, int n) {
         toys[i] = NULL;
         // if (toys[i]) {
 		// toys[i]->name = NULL;
-		// toys[i]->country = NULL;
-		if (flow == stdin) {
-			printf("Adding toy №%d...\n", i + 1);
-			fflush(stdout);
-		}
-		tmp_toy = add_toy(flow);
+        // toys[i]->country = NULL;
+        if (flow == stdin) {
+            printf("Adding toy №%d...\n", i + 1);
+            fflush(stdout);
+        }
+        tmp_toy = add_toy(flow);
 
-		if (tmp_toy) {
-			toys[i] = tmp_toy;
-			printf("\n");
-		} else {
+        if (tmp_toy) {
+            toys[i] = tmp_toy;
+            printf("\n");
+        } else {
             printf("Allocate error! Try again.\n");
-			free_toys(toys, i);
-			return NULL;
-		}
+            free_toys(toys, i);
+            return NULL;
+        }
     }
     fflush(stdout);
 
