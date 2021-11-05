@@ -22,7 +22,7 @@ toy **add_toys(FILE *flow, int n) {
         // toys[i] = malloc(sizeof(toy));
         toys[i] = NULL;
         // if (toys[i]) {
-		// toys[i]->name = NULL;
+        // toys[i]->name = NULL;
         // toys[i]->country = NULL;
         if (flow == stdin) {
             printf("Adding toy №%d...\n", i + 1);
