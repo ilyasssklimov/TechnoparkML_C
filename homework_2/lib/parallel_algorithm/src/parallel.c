@@ -85,6 +85,10 @@ inline int count_predicate_truth(int *array, int n, predicate *pred)
             kill_proccess(pid_array, i);
             return FORK_ERROR;
         }
+    }
+    
+    for (int i = 0; i < amount; i++)
+    {
         result_array[i] = waitpid(pid_array[i], &status_array[i], 0);
     }
     

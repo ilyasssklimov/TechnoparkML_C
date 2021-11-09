@@ -249,6 +249,7 @@ bool do_predicate(predicate *pred, int number)
     }
 
     bool total_result = tmp_result[0];
+    
     for (int i = 0; i < pred->count_cmp - 1; i++)
     {
         if (pred->logic[i] == AND)

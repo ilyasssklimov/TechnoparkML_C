@@ -12,9 +12,9 @@
 
 enum 
 {
-    FORK_ERROR,
-    PARAM_ERROR,
-    MAP_ERROR
+    FORK_ERROR = -1,
+    PARAM_ERROR = -2,
+    MAP_ERROR = -3
 };
 
 
