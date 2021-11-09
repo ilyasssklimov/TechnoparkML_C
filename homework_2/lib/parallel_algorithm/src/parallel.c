@@ -5,6 +5,7 @@
 #include <sys/wait.h>
 #include <sys/types.h> 
 #include <signal.h>
+#include <stdio.h>
 
 
 static inline int count_predicate_truth_gap(int *array, predicate *pred, int first, int last)
@@ -15,8 +16,9 @@ static inline int count_predicate_truth_gap(int *array, predicate *pred, int fir
     int count = 0;
     
     for (int i = first; i < last; i++)
+    {
         count += do_predicate(pred, array[i]);
-    
+    }
     return count;
 }
 
@@ -68,10 +70,16 @@ inline int count_predicate_truth(int *array, int n, predicate *pred)
     int pid_array[amount];
     pid_t result_array[amount];
     int status_array[amount];
+    int right_border;
     
     for (int i = 0; i < amount; i++)
     {
-        pid_array[i] = execute_proccess(array, total, pred, i * step, (i + 1) * step);
+        if (unlikely(i == amount - 1))
+            right_border = n;
+        else
+            right_border = (i + 1) * step;
+            
+        pid_array[i] = execute_proccess(array, total, pred, i * step, right_border);
         if (unlikely(pid_array[i] == -1))
         {
             kill_proccess(pid_array, i);
